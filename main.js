@@ -32,4 +32,23 @@ fetch('http://localhost:3003/technos')
         .catch(console.error);
 ;
 
-loadTechnologies(technos); 
+if(navigator.serviceWorker) {
+    navigator.serviceWorker.register('sw.js')
+                            .catch(err => console.error)
+}
+//creation du cache 
+// if(window.caches) {
+//     caches.open('veille-techno-1.0');
+//     caches.open('other-1.0');
+//     caches.keys().then(console.log);
+// } 
+
+// if(window.caches){
+//     caches.open("pwa").then(
+//         cache => cache.addAll([
+//         'index.html',
+//         'main.js',
+//         'vendors/bootstrap.min.css'
+//         ])
+//     )
+// }
